@@ -5,13 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
   <script src="./scripts/axios.js"></script>
-  <script src="./scripts/client.js"></script>
+  <script defer src="./scripts/client.js"></script>
   <title>SQL TO-DO List</title>
 </head>
 <body>
   <header>
     <h1>SQL TO-DO List</h1>
   </header>
+  <form onsubmit="addTodoItem(event)">
+    <input id="todo_item" type="text" placeholder="Enter to-do task" required/>
+  </form>
 
+  <table>
+    <thead>
+      <tr>
+        <th></th>
+      </tr>
+  </thead>
+  <tbody id="todo_item_list"></tbody>
+  </table>
 </body>
 </html>
