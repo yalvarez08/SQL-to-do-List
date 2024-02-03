@@ -13,16 +13,15 @@
     <h1>SQL TO-DO List</h1>
   </header>
   <form onsubmit="addTodoItem(event)">
-    <input id="todo_item" type="text" placeholder="Enter to-do task" required/>
+    <input id="todo_item" type="text" placeholder="Enter to-do task" data-testid="toDoTextInput" required/>
+    <button id="add_btn" data-testid="submitButton">Add to List</button>
   </form>
 
-  <table>
-    <thead>
-      <tr>
-        <th></th>
-      </tr>
-  </thead>
-  <tbody id="todo_item_list"></tbody>
-  </table>
+  <div> 
+    <h2>To-Do List:</h2>
+      <ul id="todo_item_list">
+       <!--listed items-->
+      </ul>
+  </div>
 </body>
 </html>

@@ -6,7 +6,7 @@ function getTodos() {
 //axios call to get todos from server
     axios.get('/todos').then((response) => {
         console.log('response', response.data);
-        refreshTodosDom();
+        refreshTodosDom(response.data);
     })
     .catch((err) => {
         console.log('error in GET', err);
@@ -14,22 +14,15 @@ function getTodos() {
 }
 
 
-function refreshTodosDom() {
+function refreshTodosDom(listOfTodos) {
     let domData = document.getElementById('todo_item_list');
     domData.innerHTML = "";
-    for (let item of domData) {
-        const {
-            id,
-            text,
-            isComplete,
-        } = item;
-        
+    for (let item of listOfTodos) {
         domData.innerHTML += `
-        <tr>
-            <td>${text}</td>
-            <td><button onclick="itemCompleted(${id})">Complete</button></td>
-            <td><button onclick="itemDeleted(${id})">Delete</button></td>
-        </tr>
+        <li data-testid="toDoItem"> ${item.text}
+            <button data-testid="completeButton" onclick="itemCompleted(${item.id})">Complete</button>
+            <button data-testid="deleteButton" onclick="itemDeleted(${item.id})">Delete</button>
+        </li>
         `;
     }
 }
