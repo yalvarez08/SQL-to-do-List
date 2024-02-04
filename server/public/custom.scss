@@ -1,4 +1,9 @@
 
+
+//Include all of Bootstrap
+@import "../../node_modules/bootstrap/scss/bootstrap";
+
+
 $container-max-widths: (
   sm: 540px,
   md: 720px,
@@ -6,11 +11,28 @@ $container-max-widths: (
   xl: 1140px,
   xxl: 1320px
 );
-//Include all of Bootstrap
-@import "../../node_modules/bootstrap/scss/bootstrap";
 
+.card-body {
+    background-color: rgb(125, 124, 124);
+    border: solid rgb(125, 124, 124); 
+}
 
+.form-label {
+    margin-right: 1rem;
+}
 
+.btn {
+    margin-left: 0.5rem;
+}
+
+.gradient-custom {
+    background: radial-gradient(50% 123.47% at 50% 50%, #00ff94 0%, #720059 100%),
+      linear-gradient(121.28deg, #739600 0%, #ff0000 100%),
+      linear-gradient(360deg, #008cff 0%, #8fff00 100%),
+      radial-gradient(100% 164.72% at 100% 100%, #6100ff 0%, #00ff57 100%),
+      radial-gradient(100% 148.07% at 0% 0%, #fff500 0%, #51d500 100%);
+    background-blend-mode: screen, color-dodge, overlay, difference, normal;
+}
 
 
 

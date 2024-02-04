@@ -19,9 +19,10 @@ function refreshTodosDom(listOfTodos) {
     domData.innerHTML = "";
     for (let item of listOfTodos) {
         domData.innerHTML += `
-        <li data-testid="toDoItem" id="list_element"> ${item.text}
-            <button data-testid="completeButton" class="btn btn-outline-success" onclick="itemCompleted(${item.id})">☑️</button>
-            <button data-testid="deleteButton" class="btn btn-outline-danger" onclick="itemDeleted(${item.id})">❌</button>
+        <li data-testid="toDoItem" id="list_element" class="list-group-item d-flex align-items-center border-0 mb-2 rounded"
+        style="background-color: #f4f6f7;"> ${item.text}
+            <button data-testid="completeButton" class="btn btn-outline-success" onclick="itemCompleted(${item.id}, event)">✅</button>
+            <button data-testid="deleteButton" class="btn btn-outline-danger ml-2" onclick="itemDeleted(${item.id})">❌</button>
         </li>
         `;
     }
@@ -47,21 +48,16 @@ function addTodoItem(event) {
 } 
 
 //update isComplete value to true in database
-function itemCompleted(id) {
+function itemCompleted(id, event) {
+    event.target.parentElement.classList.add("completed");
 //axios call to put(update) item to completed 
     axios.put(`/todos/${id}`)
     .then((response) => {
-        getTodos();
+        //getTodos();
     })
     .catch((err) => {
         console.log('error in PUT', err);
     });
-}
-
-function changeItemColor() {
-let listElement = document.getElementById("list_element");
-   
-    
 }
      
 

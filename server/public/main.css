@@ -1,4 +1,10 @@
 
 .completed {
-    color: rgba(84, 194, 20, 0.722);
+    font-weight: bold;
+    font-style: oblique;
 }
+
+div, form, .text-center{
+    color:azure;
+}
+
