@@ -19,9 +19,9 @@ function refreshTodosDom(listOfTodos) {
     domData.innerHTML = "";
     for (let item of listOfTodos) {
         domData.innerHTML += `
-        <li data-testid="toDoItem"> ${item.text}
-            <button data-testid="completeButton" onclick="itemCompleted(${item.id})">Complete</button>
-            <button data-testid="deleteButton" onclick="itemDeleted(${item.id})">Delete</button>
+        <li data-testid="toDoItem" id="list_element"> ${item.text}
+            <button data-testid="completeButton" class="btn btn-outline-success" onclick="itemCompleted(${item.id})">☑️</button>
+            <button data-testid="deleteButton" class="btn btn-outline-danger" onclick="itemDeleted(${item.id})">❌</button>
         </li>
         `;
     }
@@ -58,14 +58,36 @@ function itemCompleted(id) {
     });
 }
 
+function changeItemColor() {
+let listElement = document.getElementById("list_element");
+   
+    
+}
+     
+
 //delete todo item from list
 function itemDeleted(id) {
+//confirmation pop-up when deleting a task
+    Swal.fire({
+        title:'Are you sure you want to delete this task?',
+        showDenyButton:true,
+        showCancelButton: true,
+        confirmButtonText:'Yes',
+        denyButtonText:'No',
+    })
 //axios call to delete item from database table
-    axios.delete(`/todos/${id}`)
-    .then((response) => {
-        getTodos();
-    })
-    .catch((err) => {
-        console.log('error in DELETE', err);
-    })
+    .then((act) => {
+        if(act.isConfirmed) {
+            axios.delete(`/todos/${id}`)
+            .then((result) => {
+                getTodos()
+            })
+            .catch((err) => {
+                console.log('error in DELETE', err);
+                Swal.fire('Task was successfully deleted!');
+            })
+        } else if(act.isDenied) {
+            Swal.fire('Task was not deleted.')
+        }
+    });
 }
