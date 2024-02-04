@@ -1,7 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito&family=Zilla+Slab+Highlight&display=swap');
 
 .completed {
-    font-weight: bold;
-    font-style: oblique;
+    font-weight:600;
+    font-family: 'Zilla Slab Highlight', serif;
+}
+div {
+    font-family: 'Nunito', sans-serif;
 }
 
 div, form, .text-center{
