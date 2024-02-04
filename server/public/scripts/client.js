@@ -37,6 +37,19 @@ function addTodoItem(event) {
     };
     console.log('Adding todo task:', taskToSend);
     document.getElementById('todo_item').value = "";
+    Swal.fire({
+        title: "Success!",
+        text: "New task was added.",
+        width: 600,
+        padding: "3em",
+        color: "#716add",
+        backdrop: `
+            rgba(0,0,123,0.4)
+            url("images/cheering-penguins.gif")
+            left top
+            repeat
+        `
+    });
 //axios call to add todo item to list
     axios({method:'POST', url: '/todos', data: taskToSend})
     .then((response) => {
