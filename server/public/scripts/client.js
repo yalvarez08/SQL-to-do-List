@@ -66,7 +66,7 @@ function itemCompleted(id, event) {
 //axios call to put(update) item to completed 
     axios.put(`/todos/${id}`)
     .then((response) => {
-        //getTodos();
+        getTodos();
     })
     .catch((err) => {
         console.log('error in PUT', err);
@@ -90,10 +90,10 @@ function itemDeleted(id) {
             axios.delete(`/todos/${id}`)
             .then((result) => {
                 getTodos()
+                Swal.fire('Task was successfully deleted!');
             })
             .catch((err) => {
                 console.log('error in DELETE', err);
-                Swal.fire('Task was successfully deleted!');
             })
         } else if(act.isDenied) {
             Swal.fire('Task was not deleted.')
