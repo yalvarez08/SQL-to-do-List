@@ -66,7 +66,7 @@ function itemCompleted(id, event) {
 //axios call to put(update) item to completed 
     axios.put(`/todos/${id}`)
     .then((response) => {
-        getTodos();
+        //getTodos();
     })
     .catch((err) => {
         console.log('error in PUT', err);
