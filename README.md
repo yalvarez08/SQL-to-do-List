@@ -5,6 +5,7 @@ A full-stack CRUD To-Do List application.
 
 
 ## Screen Shot
+<img width="1396" alt="Screenshot 2024-02-04 at 9 07 12 PM" src="https://github.com/yalvarez08/weekend-SQL-to-do-list/assets/145588787/130eb935-907a-4e25-992f-3e19804698c7">
 
 
 ## Prequisites
